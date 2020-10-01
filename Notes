@@ -1,0 +1,5 @@
+# <label>Content:</label> 
+# <input type="textarea" name = "content" id = "content"></br>
+<h3> Or upload a file: </h3>
+<label>File:</label></br>
+<input type="file" name = "file" id = "file"></br></br>
