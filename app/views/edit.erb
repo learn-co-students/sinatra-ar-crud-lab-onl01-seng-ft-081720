@@ -1,0 +1,11 @@
+<h1>Edit your Article</h1>
+
+<form method='post' action="/articles/<%= @article.id %>">
+<input id='hidden' type='hidden' name='_method' value='patch'>
+    <label for='title'>Title: </label><br>
+    <input type='text' size='75' name='title' value='<%= @article.title %>'><br>
+    <br>
+    <label for='content'>Content: </label><br>
+    <textarea name='content' rows='20' cols='75'><%= @article.content %></textarea>
+    <input type='submit'>
+</form>
