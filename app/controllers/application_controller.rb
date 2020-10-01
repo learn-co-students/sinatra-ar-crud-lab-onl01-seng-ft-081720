@@ -21,14 +21,30 @@ class ApplicationController < Sinatra::Base
     erb :new
   end
 
-  post '/posts' do 
-    @article = Article.create(params)
-    redirect to '/articles' ##this is where we make new posts that save to our database!
+  get '/articles/:id' do
+    @article = Article.find_by_id(params[:id])
+    erb :show
   end
 
-  get '/articles/:id' do
+  post '/articles' do 
+    @article = Article.create(params)
+    redirect to "/articles/#{@article.id}" ##this is where we make new posts that save to our database!
+  end
+
+  get '/articles/:id/edit' do
+    @article = Article.find_by_id(params[:id])
+    erb :edit
+  end
+
+  patch '/articles/:id' do 
     @article = Article.find(params[:id])
-    erb :show
+    @article.update(params[:article])
+    redirect to "/articles/#{@article.id}"
+  end
+
+  delete "/articles/:id" do
+    Article.destroy(params[:id])
+    redirect to "/articles"
   end
 
 end
