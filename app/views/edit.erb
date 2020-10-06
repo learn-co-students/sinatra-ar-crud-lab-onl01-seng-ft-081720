@@ -1,0 +1,34 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Edit Article</title>
+  <style>
+    input {
+      margin: 5px
+    }
+    #content {
+        rows = 20;
+        columns = 20;
+        height: 30px;
+        font-size: 12pt;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Edit Article</h1>
+  <form action="/articles/<%= @article.id %>" method="post">
+    <input id="hidden" type="hidden" name="_method" value="PATCH">
+    <label for="article_title">Article Title: </label>
+    <input type="text" name="article[title]" id="title" placeholder=<%= @article.title %>><br>
+
+    <label for="article_content">Article Content: </label>
+    <input type="text" name="article[content]" id="content" placeholder=<%= @article.content %>><br>
+
+    <br>
+    <input type="submit" id="submit" value="Submit"/> 
+  </form>
+</body>
+</html>
