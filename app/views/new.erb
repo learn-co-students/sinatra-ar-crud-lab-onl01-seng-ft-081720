@@ -1,0 +1,28 @@
+
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>New Article</title>
+  <style>
+    input {
+      margin: 5px
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Create A New Article</h1>
+  <form action="/articles" method="POST">
+    <label for="article_title">Article Title: </label>
+    <input type="text" name="article[title]" id="title" %>"<br>
+
+    <label for="article_content">Article Content: </label>
+    <input type="text" name="article[content]" id="content" %><br>
+
+    <br>
+    <input type="submit" id="submit" value="submit"/> 
+  </form>
+</body>
+</html>
